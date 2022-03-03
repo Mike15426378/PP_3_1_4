@@ -6,14 +6,17 @@
 </head>
 <body>
     <form action="#" th:action="@{/admin/work/user-create}" th:object="${user}" method="post">
-        <label for="name">Enter name</label>
-        <input type="text" th:field="*{name}" id="name" placeholder="name">
+        <label for="username">Enter username</label>
+        <input type="text" th:field="*{username}" id="username" placeholder="username">
 
         <label for="surname">Enter surname</label>
         <input type="text" th:field="*{surname}" id="surname" placeholder="surname">
 
         <label for="age">Enter age</label>
         <input type="text" name="age" id="age" placeholder="id">
+
+        <label for="password">Enter password(формат Bcrypt)</label>
+        <input type="text" name="password" id="password" placeholder="password">
 
         <label for="email">Enter email</label>
         <input type="text" th:field="*{email}" id="email" placeholder="email">

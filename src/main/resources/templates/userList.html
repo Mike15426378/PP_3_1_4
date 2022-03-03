@@ -13,7 +13,7 @@
             <thread>
                 <tr>
                     <th>ID</th>
-                    <th>NAME</th>
+                    <th>USERNAME</th>
                     <th>SURNAME</th>
                     <th>AGE</th>
                     <th>EMAIL</th>
@@ -23,7 +23,7 @@
             <tbody>
                 <tr th:each="user : ${users}">
                     <td th:text="${user.getId()}"/>
-                    <td th:text="${user.getName()}"/>
+                    <td th:text="${user.getUsername()}"/>
                     <td th:text="${user.getSurname()}"/>
                     <td th:text="${user.getAge()}"/>
                     <td th:text="${user.getEmail()}"/>
@@ -37,7 +37,7 @@
     </div>
     <br/>
     <form action="#" th:action="@{/admin/work/user-create}" method="get">
-        <input type="submit" value="create form"/>
+        <input type="submit" value="Create"/>
     </form>
     <br/>
     <form action="#" th:action="@{/admin}" method="get">

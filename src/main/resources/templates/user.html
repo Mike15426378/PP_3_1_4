@@ -5,6 +5,10 @@
 </head>
 <body>
 <h1>User, welcome spring boot security page!</h1>
+<form action="#" th:action="@{/admin/work/}" method="get">
+    <input type="submit" value="Admin"/>
+</form>
+<br/>
 <form action="#" th:action="@{/logout}" method="get">
     <input type="submit" value="Logout"/>
 </form>
