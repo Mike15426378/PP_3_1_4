@@ -1,17 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>All Users</title>
 </head>
 <body>
-<h1>Добро пожаловать на страницу администратора!</h1>
-<form action="#" th:action="@{/admin/work/}" method="get">
-    <input type="submit" value="All users"/>
-</form>
-<br/>
-<form action="#" th:action="@{/logout}" method="get">
-    <input type="submit" value="Logout"/>
-</form>
+<div th:switch="${users}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Admin page</h2>
+        <table border="1">User table
+            <thread>
+                <tr>
+                    <th>ID</th>
+                    <th>USERNAME</th>
+                    <th>SURNAME</th>
+                    <th>AGE</th>
+                    <th>EMAIL</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thread>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.getId()}"/>
+                    <td th:text="${user.getUsername()}"/>
+                    <td th:text="${user.getSurname()}"/>
+                    <td th:text="${user.getAge()}"/>
+                    <td th:text="${user.getEmail()}"/>
+                    <td>
+                        <a th:href="@{/admin/user-update/{id}(id=${user.getId()})}">Update</a>
+                        <a th:href="@{/admin/user-delete/{id}(id=${user.getId()})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <form action="#" th:action="@{/admin/user-create}" method="get">
+        <input type="submit" value="Create"/>
+    </form>
+    <br>
+    <form action="#" th:action="@{/user}" method="get">
+        <input type="submit" value="Profile info"/>
+    </form>
+    <br>
+    <form action="#" th:action="@{/logout}" method="get">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
 </body>
 </html>

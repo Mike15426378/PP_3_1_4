@@ -5,29 +5,34 @@
     <title>Create user</title>
 </head>
 <body>
-    <form action="#" th:action="@{/admin/work/user-create}" th:object="${user}" method="post">
-        <label for="username">Enter username</label>
+    <form action="#" th:action="@{/admin/user-create}" th:object="${user}" method="post">
         <input type="text" th:field="*{username}" id="username" placeholder="username">
-
-        <label for="surname">Enter surname</label>
+        <label for="username">Enter username</label>
+        <br>
+        <br>
         <input type="text" th:field="*{surname}" id="surname" placeholder="surname">
-
+        <label for="surname">Enter surname</label>
+        <br>
+        <br>
+        <input type="text" name="age" id="age" placeholder="age">
         <label for="age">Enter age</label>
-        <input type="text" name="age" id="age" placeholder="id">
-
-        <label for="password">Enter password(формат Bcrypt)</label>
+        <br>
+        <br>
         <input type="text" name="password" id="password" placeholder="password">
-
-        <label for="email">Enter email</label>
+        <label for="password">Enter password</label>
+        <br>
+        <br>
         <input type="text" th:field="*{email}" id="email" placeholder="email">
-        <br/>
+        <label for="email">Enter email</label>
+        <br>
+        <br>
         <input type="submit" value="Create"/>
     </form>
-    <br/>
-    <form action="#" th:action="@{/admin/work/}" method="get">
+    <br>
+    <form action="#" th:action="@{/admin}" method="get">
         <input type="submit" value="Back"/>
     </form>
-    <br/>
+    <br>
     <form action="#" th:action="@{/logout}" method="get">
         <input type="submit" value="Logout"/>
     </form>

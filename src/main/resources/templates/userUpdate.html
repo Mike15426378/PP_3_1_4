@@ -5,32 +5,38 @@
     <title>Update User</title>
 </head>
 <body>
-    <form action="#" th:action="@{/admin/work/user-update}" th:object="${user}" method="post">
-        <label for="id">User id (readonly)</label>
+    <form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">
         <input readonly type="number" th:field="*{id}" id="id">
-
-        <label for="username">Enter username: </label>
+        <label for="id">User id (readonly)</label>
+        <br>
+        <br>
         <input type="text" th:field="*{username}" id="username"/>
-
-        <label for="surname">Enter surname:</label>
+        <label for="username">Enter username: </label>
+        <br>
+        <br>
         <input type="text" th:field="*{surname}" id="surname">
-
-        <label for="age">Enter age:</label>
+        <label for="surname">Enter surname:</label>
+        <br>
+        <br>
         <input type="text" th:field="*{age}" id="age">
-
-        <label for="password">Enter password:</label>
+        <label for="age">Enter age:</label>
+        <br>
+        <br>
         <input type="text" th:field="*{password}" id="password">
-
-        <label for="email">Enter email:</label>
+        <label for="password">Enter password:</label>
+        <br>
+        <br>
         <input type="text" th:field="*{email}" id="email">
-        <br/>
+        <label for="email">Enter email:</label>
+        <br>
+        <br>
         <input type="submit" value="Update"/>
     </form>
-    <br/>
-    <form action="#" th:action="@{/admin/work/}" method="get">
+    <br>
+    <form action="#" th:action="@{/admin}" method="get">
         <input type="submit" value="Back"/>
     </form>
-    <br/>
+    <br>
     <form action="#" th:action="@{/logout}" method="get">
         <input type="submit" value="Logout"/>
     </form>
