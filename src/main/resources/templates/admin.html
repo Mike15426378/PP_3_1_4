@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>All Users</title>
@@ -17,6 +17,7 @@
                     <th>SURNAME</th>
                     <th>AGE</th>
                     <th>EMAIL</th>
+                    <th>ROLE</th>
                     <th>ACTIONS</th>
                 </tr>
             </thread>
@@ -27,6 +28,7 @@
                     <td th:text="${user.getSurname()}"/>
                     <td th:text="${user.getAge()}"/>
                     <td th:text="${user.getEmail()}"/>
+                    <td th:text="${user.getRoles()}"/>
                     <td>
                         <a th:href="@{/admin/user-update/{id}(id=${user.getId()})}">Update</a>
                         <a th:href="@{/admin/user-delete/{id}(id=${user.getId()})}">Delete</a>

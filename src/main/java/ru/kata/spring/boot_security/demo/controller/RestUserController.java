@@ -1,6 +1,8 @@
 package ru.kata.spring.boot_security.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +11,7 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.security.Principal;
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class RestUserController {
 
@@ -21,8 +23,9 @@ public class RestUserController {
     }
 
     @GetMapping
-    public String userInfoPage(Principal principal) {
+    public String userInfoPage(Principal principal, Model model) {
         User user = userService.findByUsername(principal.getName());
-        return "Привет, это ваша домашняя страница, с вашими данными: " + user;
+        model.addAttribute("user", user);
+        return "user";
     }
 }
