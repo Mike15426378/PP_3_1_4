@@ -6,28 +6,28 @@
 </head>
 <body>
     <form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">
-        <input readonly type="number" th:field="*{id}" id="id">
         <label for="id">User id (readonly)</label>
+        <input readonly type="number" th:field="*{id}" id="id">
         <br>
         <br>
-        <input type="text" th:field="*{username}" id="username"/>
         <label for="username">Enter username: </label>
+        <input type="text" th:field="*{username}" id="username"/>
         <br>
         <br>
-        <input type="text" th:field="*{surname}" id="surname">
         <label for="surname">Enter surname:</label>
+        <input type="text" th:field="*{surname}" id="surname">
         <br>
         <br>
-        <input type="text" th:field="*{age}" id="age">
         <label for="age">Enter age:</label>
+        <input type="text" th:field="*{age}" id="age">
         <br>
         <br>
-        <input type="text" th:field="*{password}" id="password">
         <label for="password">Enter password:</label>
+        <input type="text" th:field="*{password}" id="password">
         <br>
         <br>
-        <input type="text" th:field="*{email}" id="email">
         <label for="email">Enter email:</label>
+        <input type="text" th:field="*{email}" id="email">
         <br>
         <br>
         <input type="submit" value="Update"/>

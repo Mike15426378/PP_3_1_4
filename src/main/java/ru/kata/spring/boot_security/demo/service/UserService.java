@@ -36,7 +36,7 @@ public class UserService implements UserDetailsService {
     }
 
     public User saveUser(User user) {
-        user.addRole(new Role(2l, "ROLE_USER"));
+        user.addRole(new Role(2L, "ROLE_USER"));
         return userRepository.save(user);
     }
 

@@ -24,7 +24,6 @@ public class AdminController {
 
     @GetMapping("")
     public String findAll(Model model) {
-        //List<User> users = userService.findAll();
         model.addAttribute("users", userService.findAll());
         return "admin";
     }
