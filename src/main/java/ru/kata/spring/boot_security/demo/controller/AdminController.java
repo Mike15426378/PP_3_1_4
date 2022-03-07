@@ -9,8 +9,6 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.security.Principal;
-import java.util.List;
-
 
 @Controller
 @RequestMapping("/admin")
