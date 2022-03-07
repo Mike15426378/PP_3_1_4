@@ -47,18 +47,19 @@
                     <div class="card-header">
                         <h5>All users</h5>
                     </div>
+                    <br>
                     <div class="container-fluid">
                         <table class="table table-striped">
                             <thread>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>USERNAME</th>
-                                    <th>SURNAME</th>
-                                    <th>AGE</th>
-                                    <th>EMAIL</th>
-                                    <th>ROLE</th>
-                                    <th>EDIT</th>
-                                    <th>DELETE</th>
+                                    <th bgcolor="white">ID</th>
+                                    <th bgcolor="white">USERNAME</th>
+                                    <th bgcolor="white">SURNAME</th>
+                                    <th bgcolor="white">AGE</th>
+                                    <th bgcolor="white">EMAIL</th>
+                                    <th bgcolor="white">ROLE</th>
+                                    <th bgcolor="white">EDIT</th>
+                                    <th bgcolor="white">DELETE</th>
                                 </tr>
                             </thread>
                             <tbody>
@@ -113,7 +114,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="passwordEdit">Password</label>
-                                                                    <input type="text" class="form-control" th:value="*{password}" id="passwordEdit" th:name="password">
+                                                                    <input type="text" class="form-control" th:value="*{password}" id="passwordEdit" th:name="password" readonly/>
                                                                 </div>
                                                             </div>
                                                             <br>
