@@ -11,7 +11,11 @@
 <body style="background-color: whitesmoke">
 <!-- панеьл навигации -->
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand text-white" th:utext="'<b>'+${admin.email}+'</b> with roles: ' + ${admin.roles}"></a>
+    <div th:switch="${role}">
+        <div th:case="'ADMIN'">
+            <a class="navbar-brand text-white" th:utext="'<b>'+${admin.email}+'</b> with roles: ADMIN, USER'"></a>
+        </div>
+    </div>
     <form class="form-inline" th:action="@{/logout}" method="get">
         <button type="submit" class="btn btn-dark text-secondary">Logout</button>
     </form>
