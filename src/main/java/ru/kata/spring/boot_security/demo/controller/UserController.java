@@ -5,10 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.security.Principal;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/user")
@@ -24,6 +27,20 @@ public class UserController {
     @GetMapping("")
     public String userInfoPage(Principal principal, Model model) {
         User user = userService.findByUsername(principal.getName());
+        List<Role> list = user.getRoles();
+        for (Role el : list) {
+            if(el.getName().equals("ROLE_ADMIN")) {
+                model.addAttribute("role", "ADMIN");
+                System.out.println("отработал if ADMIN");
+                break;
+            }
+            if (el.getName().equals("ROLE_USER")){
+                model.addAttribute("role", "USER");
+                System.out.println("отработал if USER");
+                break;
+            }
+        }
+
         model.addAttribute("user", user);
         return "user";
     }

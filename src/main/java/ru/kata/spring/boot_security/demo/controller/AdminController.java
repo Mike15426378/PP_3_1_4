@@ -40,11 +40,4 @@ public class AdminController {
         userService.deleteById(id);
         return "redirect:/admin";
     }
-
-    @GetMapping("/profile")
-    public String userInfoPage(Principal principal, Model model) {
-        User user = userService.findByUsername(principal.getName());
-        model.addAttribute("user", user);
-        return "adminProfile";
-    }
 }

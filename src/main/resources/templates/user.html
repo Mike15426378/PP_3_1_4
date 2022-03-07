@@ -9,7 +9,7 @@
           crossorigin="anonymous">
 </head>
 <body style="background-color: whitesmoke">
-<!-- панеьл навигации -->
+<!-- панель навигации -->
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand text-white" th:utext="'<b>'+${user.email}+'</b> with roles: ' + ${user.roles}"></a>
     <form class="form-inline" th:action="@{/logout}" method="get">
@@ -20,10 +20,24 @@
     <!--  кнопки слева ADMIN, USER (profile)  -->
     <div class="col-2 nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color: white">
         <br>
-        <ul class="nav nav-pills">
-            <a class="container-fluid nav-link active" th:href="@{/user}" role="tab" th:utext="User"></a>
-        </ul>
+        <div th:switch="${role}">
+            <div th:case="'ADMIN'">
+                <ul class="nav nav-pills">
+                    <a class="container-fluid nav-link active" th:href="@{/admin}" role="tab" th:utext="Admin"></a>
+                </ul>
+                <ul class="nav nav-pills">
+                    <a class="container-fluid nav-link active" th:href="@{/user}" role="tab" th:utext="User"></a>
+                </ul>
+            </div>
+            <div th:case="'USER'">
+                <ul class="nav nav-pills">
+                    <a class="container-fluid nav-link active" th:href="@{/user}" role="tab" th:utext="User"></a>
+                </ul>
+            </div>
+        </div>
+
     </div>
+
 <!--  табл с инфой и пользователе  -->
     <div class="container col-md-10">
         <br>
@@ -32,6 +46,7 @@
             <div class="card-header">
                 <h5>About user</h5>
             </div>
+            <br>
             <div class="container-fluid">
                 <table class="table table-striped">
                     <thread>
