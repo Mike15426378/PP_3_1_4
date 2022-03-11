@@ -24,25 +24,25 @@ public class MyRestController {
         return allUsers;
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/users/{id}")
     public User getUserById(@PathVariable long id) {
         User user = userService.findById(id);
         return user;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/users")
     public User addNewUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
 
-    @PutMapping("/user")
+    @PutMapping("/users")
     public User updateUser(@RequestBody User user) {
         userService.saveUser(user);
         return user;
     }
 
-    @DeleteMapping("/user/{id}")
-    public String deleteUser(@PathVariable("id") long id) {
+    @DeleteMapping("/users/{id}")
+    public String deleteUser(@PathVariable long id) {
         userService.deleteById(id);
         return "Пользователь с id = " + id + " удален.";
     }
