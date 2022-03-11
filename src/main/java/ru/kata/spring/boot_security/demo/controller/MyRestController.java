@@ -1,6 +1,8 @@
 package ru.kata.spring.boot_security.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
@@ -19,9 +21,8 @@ public class MyRestController {
     }
 
     @GetMapping("/users")
-    public List<User> showAllUsers() {
-        List<User> allUsers = userService.findAll();
-        return allUsers;
+    public ResponseEntity<List<User>> showAllUsers() {
+        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/users/{id}")
