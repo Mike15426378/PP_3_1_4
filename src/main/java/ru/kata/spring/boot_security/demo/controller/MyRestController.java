@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
+
+import java.security.Principal;
 import java.util.List;
 
 
@@ -23,6 +25,12 @@ public class MyRestController {
     @GetMapping("/users")
     public ResponseEntity<List<User>> showAllUsers() {
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<User> getUserByUsername (Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        return new ResponseEntity<>(user,HttpStatus.OK);
     }
 
     @GetMapping("/users/{id}")
