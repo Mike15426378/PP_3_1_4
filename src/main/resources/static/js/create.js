@@ -1,56 +1,20 @@
-async function createUser() {
-    $('#addUser').click(async () =>  {
-        let addUserForm = $('#addForm')
-        let username = addUserForm.find('#usernameCreate').val().trim();
-        let surname = addUserForm.find('#surnameCreate').val().trim();
-        let age = addUserForm.find('#ageCreate').val().trim();
-        let email = addUserForm.find('#emailCreate').val().trim();
-        let password = addUserForm.find('#passwordCreate').val().trim();
-        let checkedRoles = () => {
-            let array = []
-            let options = document.querySelector('#rolesCreate').options
-            for (let i = 0; i < options.length; i++) {
-                if (options[i].selected) {
-                    array.push(roleList[i])
-                }
-            }
-            return array;
-        }
-        let data = {
-            username: username,
-            surname: surname,
-            age: age,
-            email: email,
-            password: password,
-            roles: checkedRoles()
-        }
+// Add user
+$(document).on("click", "#btnNewUser", function () {
+    $('#table-tab').trigger('click');
+    let user = $("#formAddUser").serializeArray();
+    $('#nameNewUser').val('');
+    $('#surnameNewUser').val('');
+    $('#ageNewUser').val('');
+    $('#emailNewUser').val('');
+    $('#passNewUser').val('');
 
-        const response = await userFetch.addNewUser(data);
-        if (response.ok) {
-            await getUsers();
-            addUserForm.find('#usernameCreate').val('');
-            addUserForm.find('#surnameCreate').val('');
-            addUserForm.find('#ageCreate').val('');
-            addUserForm.find('#emailCreate').val('');
-            addUserForm.find('#passwordCreate').val('');
-            addUserForm.find(checkedRoles()).val('');
-            let alert = `<div class="alert alert-success alert-dismissible fade show col-12" role="alert" id="successMessage">
-                         User create successful!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>`;
-            addUserForm.prepend(alert);
-            $('.nav-tabs a[href="#adminTable"]').tab('show');
-        } else {
-            let body = await response.json();
-            let alert = `<div class="alert alert-danger alert-dismissible fade show col-12" role="alert" id="messageError">
-                            ${body.info}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>`;
-            addUserForm.prepend(alert);
+    $.ajax({
+        type: 'POST',
+        url: '/api/addUser',
+        data: user,
+        timeout: 3000,
+        success: async function (){
+             await getUsers()
         }
     });
-}
+});

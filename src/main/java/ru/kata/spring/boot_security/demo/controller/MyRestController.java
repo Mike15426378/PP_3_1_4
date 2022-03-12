@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.UserService;
-
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api")
@@ -31,8 +31,9 @@ public class MyRestController {
         return user;
     }
 
-    @PostMapping("/users")
-    public User addNewUser(@RequestBody User user) {
+    @PostMapping("/addUser")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User addNewUser(User user) {
         return userService.saveUser(user);
     }
 
@@ -47,4 +48,5 @@ public class MyRestController {
         userService.deleteById(id);
         return "Пользователь с id = " + id + " удален.";
     }
+
 }

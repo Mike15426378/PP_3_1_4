@@ -11,8 +11,9 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 @Data
 @Entity
 @Table(name = "roles")
@@ -25,9 +26,9 @@ public class Role implements GrantedAuthority {
     @Column
     private String name;
 
-    @JsonIgnore
+    @Transient
     @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
-    private List<User> users;
+    private Set<User> users;
 
     @Override
     public String toString() {

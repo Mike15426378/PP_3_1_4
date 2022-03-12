@@ -44,9 +44,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="new_User-tab" data-toggle="tab" href="#new_User" role="tab" aria-controls="new_User" aria-selected="false">
-                    New user
-                </a>
+                <a class="nav-link" data-toggle="tab" href="#newUser">New user</a>
             </li>
         </ul>
         <!-- Tab panes -->
@@ -59,7 +57,7 @@
                     </div>
                     <br>
                     <div class="container-fluid">
-                        <table class="table table-striped" id="tableAllUsers">
+                        <table class="table table-striped" id="adminTable">
                             <thread>
                                 <tr>
                                     <th bgcolor="white">ID</th>
@@ -80,60 +78,141 @@
                 </div>
             </div>
 <!--     вкладка нового пользователя       -->
-            <div class="tab-pane" id="new_User" role="tabpanel" aria-labelledby="new_User-tab">
+            <!--new user form-->
+            <div class="tab-pane fade" id="newUser" role="tabpanel" aria-labelledby="newUser-tab">
                 <div class="card">
                     <div class="card-header">
                         Add new user
                     </div>
                     <div class="container-fluid col-md-3 text-center">
-                        <br>
-                        <form id="addForm">
+                        <form id="formAddUser">
                             <div class="form-group">
-                                <label for="username">Enter username</label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                                <label for="nameNewUser">Username</label>
+                                <input type="text" class="form-control" id="nameNewUser" name="username" placeholder="Enter username">
                             </div>
                             <div class="form-group">
-                                <label for="surname">Enter surname</label>
-                                <input type="text" class="form-control" name="surname" id="surname" placeholder="surname">
+                                <label for="surnameNewUser">Surname</label>
+                                <input type="text" class="form-control" id="surnameNewUser" name="surname" placeholder="Enter surname">
                             </div>
                             <div class="form-group">
-                                <label for="age">Enter age</label>
-                                <input type="number" class="form-control" name="age" id="age" placeholder="age">
+                                <label for="ageNewUser">Age</label>
+                                <input type="number" class="form-control" id="ageNewUser" name="age" placeholder="Enter age">
                             </div>
                             <div class="form-group">
-                                <label for="password">Enter password</label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="password">
+                                <label for="emailNewUser">Email</label>
+                                <input type="email" class="form-control" id="emailNewUser" name="email" placeholder="Enter email">
                             </div>
                             <div class="form-group">
-                                <label for="email">Enter email</label>
-                                <input type="text" class="form-control" name="email" id="email" placeholder="email">
+                                <label for="passNewUser">Password</label>
+                                <input type="password" class="form-control" id="passNewUser" name="password" placeholder="Enter password">
                             </div>
-                            <div class="form-group">
-                                <label for="role">Enter role</label>
-                                <input type="text" class="form-control" name="role" id="role" placeholder="ROLE_USER">
-                            </div>
-                            <button type="submit" class="btn btn-success btn-lg">
-                                Add new user
-                            </button>
+                            <button type="button" class="btn btn-success" id="btnNewUser">Add new user</button>
                         </form>
-                        <br>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+
+<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="someDefaultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+            </div>
+
+            <div class="modal-footer">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Edit Modal женек-->
+<div class="modal fade" data-toggle="modal" id="editModal" tabindex="-1"
+     role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalTitle">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="container-fluid col-md-6 text-center">
+                    <form id="formEditUser">
+                        <!--id-->
+                        <div class="form-group">
+                            <label for="idEditUser" class="col-form-label">ID</label>
+                            <input type="text" class="form-control" id="idEditUser" name="id" readonly>
+                        </div>
+                        <!--name-->
+                        <div class="form-group">
+                            <label for="nameEditUser">Name</label>
+                            <input type="text" class="form-control" id="nameEditUser" name="name">
+                        </div>
+                        <!--lastName-->
+                        <div class="form-group">
+                            <label for="lastNameEditUser">Surname: </label>
+                            <input type="text" class="form-control" id="lastNameEditUser" name="lastName">
+                        </div>
+                        <!--age-->
+                        <div class="form-group">
+                            <label for="ageEditUser">Age: </label>
+                            <input type="number" class="form-control" id="ageEditUser" name="age">
+                        </div>
+                        <!--email-->
+                        <div class="form-group">
+                            <label for="emailEditUser">Email:</label>
+                            <input type="email" class="form-control" id="emailEditUser" name="email">
+                        </div>
+                        <!--pass-->
+                        <div class="form-group">
+                            <label for="passEditUser" >Pass: </label>
+                            <input type="password" class="form-control" id="passEditUser" name="password">
+                        </div>
+                        <!--roles-->
+                        <div class="form-group">
+                            <label for="editRoles" >Roles: </label>
+                            <select class="custom-select" name="rolesBuf" id="editRoles" multiple>
+                                <option value="ADMIN">ADMIN</option>
+                                <option value="USER">USER</option>
+                            </select>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btnEditUser">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{js/main.js}"  src="../static/js/main.js"></script>
 <script type="text/javascript" th:src="@{js/getters.js}"  src="../static/js/getters.js"></script>
 <script type="text/javascript" th:src="@{js/create.js}"  src="../static/js/create.js"></script>
+<script type="text/javascript" th:src="@{js/edit.js}"  src="../static/js/edit.js"></script>
 </body>
 </html>
