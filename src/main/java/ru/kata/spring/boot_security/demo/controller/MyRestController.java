@@ -46,7 +46,7 @@ public class MyRestController {
     }
 
     @PutMapping("/users")
-    public User updateUser(@RequestBody User user) {
+    public User updateUser(User user) {
         userService.saveUser(user);
         return user;
     }
@@ -56,5 +56,4 @@ public class MyRestController {
         userService.deleteById(id);
         return "Пользователь с id = " + id + " удален.";
     }
-
 }

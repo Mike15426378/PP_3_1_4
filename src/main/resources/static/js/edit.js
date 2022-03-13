@@ -14,12 +14,24 @@ $(document).on('click','.edit',function () {
 
 })
 
-// $.ajax({
-//     type: 'PUT',
-//     url: '/api/users',
-//     data: user,
-//     timeout: 3000,
-//     success: async function (){
-//         await getAllUser()
-//     }
-// });
+$(document).on("click", "#btnEditUser", function () {
+    $('#table-tab').trigger('click');
+    let user = $("#formEditUser").serializeArray();
+    $('#idEditUser').val(user.id);
+    $('#usernameEditUser').val('');
+    $('#surnameEditUser').val('');
+    $('#ageEditUser').val('');
+    $('#emailEditUser').val('');
+    $('#passEditUser').val('');
+    $('#roleEditUser').val('')
+
+    $.ajax({
+        type: 'PUT',
+        url: '/api/users',
+        data: user,
+        timeout: 3000,
+        success: async function (){
+            await getAllUser()
+        }
+    });
+});

@@ -71,7 +71,6 @@
                                 </tr>
                             </thread>
                             <tbody id="bodyId">
-
                             </tbody>
                         </table>
                     </div>
@@ -113,57 +112,44 @@
         </div>
     </div>
 </div>
-
-
-
 <!--Edit Modal -->
 <div class="modal fade" data-toggle="modal" id="editModal" tabindex="-1"
      role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
-
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-
             <div class="modal-header">
                 <h5 class="modal-title" id="editModalTitle">Edit user</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
             <div class="modal-body">
                 <div class="container-fluid col-md-6 text-center">
                     <form id="formEditUser">
-                        <!--id-->
                         <div class="form-group">
                             <label for="idEditUser" class="col-form-label">Id</label>
                             <input type="text" class="form-control" id="idEditUser" name="id" readonly>
                         </div>
-                        <!--name-->
                         <div class="form-group">
                             <label for="usernameEditUser">Name</label>
                             <input type="text" class="form-control" id="usernameEditUser" name="username">
                         </div>
-                        <!--lastName-->
                         <div class="form-group">
                             <label for="surnameEditUser">Surname</label>
                             <input type="text" class="form-control" id="surnameEditUser" name="surname">
                         </div>
-                        <!--age-->
                         <div class="form-group">
                             <label for="ageEditUser">Age</label>
                             <input type="number" class="form-control" id="ageEditUser" name="age">
                         </div>
-                        <!--email-->
                         <div class="form-group">
                             <label for="emailEditUser">Email</label>
                             <input type="email" class="form-control" id="emailEditUser" name="email">
                         </div>
-                        <!--pass-->
                         <div class="form-group">
                             <label for="passEditUser" >Password</label>
                             <input type="password" class="form-control" id="passEditUser" name="password">
                         </div>
-                        <!--roles-->
                         <div class="form-group">
                             <label for="roleEditUser" >Role</label>
                             <input type="text" class="form-control" id="roleEditUser" name="role">
@@ -173,7 +159,51 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" id="btnEditUser">Edit</button>
+                <button type="button" class="btn btn-success" id="btnEditUser" data-dismiss="modal">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete modal -->
+<div class="modal fade" data-toggle="modal" id="delModal" tabindex="-1"
+     role="dialog" aria-labelledby="delModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="delModalTitle">Delete user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid col-md-6 text-center">
+                    <form id="formDeleteUser">
+                        <div class="form-group">
+                            <label for="idDelUser" class="col-form-label">Id</label>
+                            <input type="text" class="form-control" id="idDelUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="nameDelUser">Username</label>
+                            <input type="text" class="form-control" id="nameDelUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastNameDelUser">Surname</label>
+                            <input type="text" class="form-control" id="lastNameDelUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="ageDelUser">Age</label>
+                            <input type="number" class="form-control" id="ageDelUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailDelUser">Email</label>
+                            <input type="email" class="form-control" id="emailDelUser" readonly>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btnDelUser">Delete</button>
             </div>
         </div>
     </div>
@@ -184,5 +214,6 @@
 <script type="text/javascript" th:src="@{js/allUsersV2.js}"  src="../static/js/allUsersV2.js"></script>
 <script type="text/javascript" th:src="@{js/create.js}"  src="../static/js/create.js"></script>
 <script type="text/javascript" th:src="@{js/edit.js}"  src="../static/js/edit.js"></script>
+<script type="text/javascript" th:src="@{js/delete.js}"  src="../static/js/delete.js"></script>
 </body>
 </html>

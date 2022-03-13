@@ -14,7 +14,7 @@ function getAllUser(){
 }
 
 function setAdminTable(result){
-    $('#adminTable').empty()
+    $('#bodyId').empty()
     let role = '';
     $.each(result, function (i, user) {
         $.each(user.roles, function (i, userRole) {
@@ -22,7 +22,7 @@ function setAdminTable(result){
         })
         $('<tr>').append(
             $('<td>').text(user.id),
-            $('<td>').text(user.name),
+            $('<td>').text(user.username),
             $('<td>').text(user.surname),
             $('<td>').text(user.age),
             $('<td>').text(user.email),
@@ -39,7 +39,7 @@ function setAdminTable(result){
                 "data-toggle": "modal",
                 "data-target": "#delModal",
             }).data("user", user))
-        ).appendTo('#adminTable')
+        ).appendTo('#bodyId')
         role = ''
     })
 }
