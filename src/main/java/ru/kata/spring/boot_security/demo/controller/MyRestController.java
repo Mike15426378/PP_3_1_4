@@ -31,14 +31,7 @@ public class MyRestController {
         return user;
     }
 
-//    @GetMapping("/users/{id}")
-//    public User getUserById(@PathVariable long id) {
-//        User user = userService.findById(id);
-//        return user;
-//    }
-
     @PostMapping("/addUser")
-    //@ResponseStatus(HttpStatus.CREATED)
     public User addNewUser(User user) {
         return userService.saveUser(user);
     }
