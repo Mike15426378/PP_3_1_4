@@ -6,17 +6,14 @@ $(document).on('click','.delete',function () {
     $('#ageDelUser').val(user.age);
     $('#emailDelUser').val(user.email);
 
+    $(document).on("click", "#btnDelUser", function () {
+        $.ajax({
+            type: 'DELETE',
+            url: `/api/user/${user.id}`,
+            timeout: 3000,
+            success: async function (){
+                await getAllUser()
+            }
+        });
+    });
 })
-
-// $(document).on('click','#btnDelUser',function () {
-//     let user = $(this).data('user');
-//     let id = user.id
-//     $.ajax({
-//         type: 'DELETE',
-//         url: `/api/users/${id}`,
-//         timeout: 3000,
-//         success: async function (){
-//             await getAllUser()
-//         }
-//     });
-// })

@@ -17,17 +17,10 @@ $(document).on('click','.edit',function () {
 $(document).on("click", "#btnEditUser", function () {
     $('#table-tab').trigger('click');
     let user = $("#formEditUser").serializeArray();
-    $('#idEditUser').val(user.id);
-    $('#usernameEditUser').val('');
-    $('#surnameEditUser').val('');
-    $('#ageEditUser').val('');
-    $('#emailEditUser').val('');
-    $('#passEditUser').val('');
-    $('#roleEditUser').val('')
 
     $.ajax({
         type: 'PUT',
-        url: '/api/users',
+        url: '/api/userEdit',
         data: user,
         timeout: 3000,
         success: async function (){

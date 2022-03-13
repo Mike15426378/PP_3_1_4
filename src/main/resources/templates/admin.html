@@ -37,14 +37,12 @@
         <br>
         <h2>Admin panel</h2>
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs" id="myTab" role="tablist" >
             <li class="nav-item">
-                <a class="nav-link active" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="true">
-                    Users table
-                </a>
+                <a class="nav-link active" id="table-tab" data-toggle="tab" href="#table" role="tab" aria-controls="table" aria-selected="true">Users table</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#newUser">New user</a>
+                <a class="nav-link text-success" data-toggle="tab" href="#newUser">New user</a>
             </li>
         </ul>
         <!-- Tab panes -->
@@ -98,7 +96,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="emailNewUser">Email</label>
-                                <input type="email" class="form-control" id="emailNewUser" name="email" placeholder="enter here">
+                                <input type="text" class="form-control" id="emailNewUser" name="email" placeholder="enter here">
                             </div>
                             <div class="form-group">
                                 <label for="passNewUser">Password</label>
@@ -128,7 +126,7 @@
                     <form id="formEditUser">
                         <div class="form-group">
                             <label for="idEditUser" class="col-form-label">Id</label>
-                            <input type="text" class="form-control" id="idEditUser" name="id" readonly>
+                            <input type="number" class="form-control" id="idEditUser" name="id" readonly>
                         </div>
                         <div class="form-group">
                             <label for="usernameEditUser">Name</label>
@@ -144,15 +142,11 @@
                         </div>
                         <div class="form-group">
                             <label for="emailEditUser">Email</label>
-                            <input type="email" class="form-control" id="emailEditUser" name="email">
+                            <input type="text" class="form-control" id="emailEditUser" name="email">
                         </div>
                         <div class="form-group">
                             <label for="passEditUser" >Password</label>
                             <input type="password" class="form-control" id="passEditUser" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label for="roleEditUser" >Role</label>
-                            <input type="text" class="form-control" id="roleEditUser" name="role">
                         </div>
                     </form>
                 </div>
@@ -180,7 +174,7 @@
                     <form id="formDeleteUser">
                         <div class="form-group">
                             <label for="idDelUser" class="col-form-label">Id</label>
-                            <input type="text" class="form-control" id="idDelUser" readonly>
+                            <input type="number" class="form-control" id="idDelUser" readonly>
                         </div>
                         <div class="form-group">
                             <label for="nameDelUser">Username</label>
@@ -196,21 +190,27 @@
                         </div>
                         <div class="form-group">
                             <label for="emailDelUser">Email</label>
-                            <input type="email" class="form-control" id="emailDelUser" readonly>
+                            <input type="text" class="form-control" id="emailDelUser" readonly>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" id="btnDelUser">Delete</button>
+                <button type="button" class="btn btn-danger" id="btnDelUser" data-dismiss="modal">Delete</button>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{js/allUsersV2.js}"  src="../static/js/allUsersV2.js"></script>
 <script type="text/javascript" th:src="@{js/create.js}"  src="../static/js/create.js"></script>
 <script type="text/javascript" th:src="@{js/edit.js}"  src="../static/js/edit.js"></script>
