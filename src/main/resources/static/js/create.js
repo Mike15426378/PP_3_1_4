@@ -1,4 +1,3 @@
-// Add user
 $(document).on("click", "#btnNewUser", function () {
     $('#table-tab').trigger('click');
     let user = $("#formAddUser").serializeArray();
@@ -14,7 +13,7 @@ $(document).on("click", "#btnNewUser", function () {
         data: user,
         timeout: 3000,
         success: async function (){
-             await getUsers()
+             await getAllUser()
         }
     });
 });
