@@ -47,8 +47,8 @@ public class MyRestController {
     }
 
     @DeleteMapping("/user/{id}")
-    public ResponseEntity<ExceptionInfo> deleteUser(@PathVariable long id) {
+    public ResponseEntity<User> deleteUser(@PathVariable long id) {
         userService.deleteById(id);
-        return new ResponseEntity<>(new ExceptionInfo("Пользователь с id = " + id + " удален."), HttpStatus.OK);
+        return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 }
