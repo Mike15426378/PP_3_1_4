@@ -102,6 +102,13 @@
                                 <label for="passNewUser">Password</label>
                                 <input type="password" class="form-control" id="passNewUser" name="password" placeholder="enter here">
                             </div>
+                            <div class="form-group">
+                                <label for="rolesNewUser" class="com-form-label">Role</label>
+                                <select multiple id="rolesNewUser" class="form-control select" size="2" name="roles">
+                                    <option value="1">ROLE_ADMIN</option>
+                                    <option value="2">ROLE_USER</option>
+                                </select>
+                            </div>
                             <button type="button" class="btn btn-success" id="btnNewUser">Add new user</button>
                         </form>
                     </div>
@@ -148,6 +155,13 @@
                             <label for="passEditUser" >Password</label>
                             <input type="password" class="form-control" id="passEditUser" name="password">
                         </div>
+                        <div class="form-group">
+                            <label for="rolesEditUser" class="com-form-label">Role</label>
+                            <select multiple id="rolesEditUser" class="form-control select" size="2" name="roles">
+                                <option value="1">ROLE_ADMIN</option>
+                                <option value="2">ROLE_USER</option>
+                            </select>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -191,6 +205,10 @@
                         <div class="form-group">
                             <label for="emailDelUser">Email</label>
                             <input type="text" class="form-control" id="emailDelUser" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="roleDelUser">Role</label>
+                            <input type="text" class="form-control" id="roleDelUser" readonly>
                         </div>
                     </form>
                 </div>

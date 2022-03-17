@@ -6,6 +6,7 @@ $(document).on("click", "#btnNewUser", function () {
     $('#ageNewUser').val('');
     $('#emailNewUser').val('');
     $('#passNewUser').val('');
+    $('#rolesNewUser').val('');
 
     $.ajax({
         type: 'POST',

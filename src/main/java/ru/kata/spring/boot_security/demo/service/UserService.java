@@ -37,7 +37,6 @@ public class UserService {
     }
 
     public User saveUser(User user) {
-        user.addRole(new Role(2L, "ROLE_USER"));
         return userRepository.save(user);
     }
 
