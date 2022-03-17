@@ -38,16 +38,4 @@ public class AdminController {
         }
         return "admin";
     }
-
-    @PostMapping("/user-save")
-    public String saveUser(User user) {
-        userService.saveUser(user);
-        return "redirect:/admin";
-    }
-
-    @GetMapping("/user-delete/{id}")
-    public String deleteUser(@PathVariable("id") long id) {
-        userService.deleteById(id);
-        return "redirect:/admin";
-    }
 }
