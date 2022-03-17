@@ -11,7 +11,6 @@ $(document).on('click','.edit',function () {
     $('#emailEditUser').val(user.email);
     $('#passEditUser').val(user.password);
     $('#roleEditUser').val(role)
-
 })
 
 $(document).on("click", "#btnEditUser", function () {
