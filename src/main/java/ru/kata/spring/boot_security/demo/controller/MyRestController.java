@@ -51,5 +51,4 @@ public class MyRestController {
         userService.deleteById(id);
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
-    /////////////////////////////
 }
